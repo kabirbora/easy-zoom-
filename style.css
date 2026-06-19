@@ -1,0 +1,88 @@
+/* style.css */
+/* Modern, dark‑mode‑friendly UI with glassmorphism */
+
+:root {
+  --bg-main: hsl(220, 12%, 10%);
+  --bg-card: hsla(220, 12%, 20%, 0.6);
+  --primary: hsl(210, 80%, 60%);
+  --text: hsl(0, 0%, 95%);
+  --radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 960px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+#jitsi-container {
+  height: 70vh;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: hsl(210, 80%, 70%);
+  transform: translateY(-2px);
+}
+
+/* Hide Jitsi UI elements we don’t need */
+[data-qa="toolbar"] {
+  display: none !important;
+}
+
+/* Show only chat and screen‑share button */
+[data-qa="toolbar"] .toolbox-button[data-tool="chat"] {
+  display: block !important;
+}
+
+data-qa="toolbar" .toolbox-button[data-tool="invite"],
+[data-qa="toolbar"] .toolbox-button[data-tool="fullscreen"],
+[data-qa="toolbar"] .toolbox-button[data-tool="raisehand"],
+[data-qa="toolbar"] .toolbox-button[data-tool="participants"] {
+  display: none !important;
+}
